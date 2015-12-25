@@ -101,6 +101,7 @@ body {
     height: 100%;
 }
 /* 定义页面内容 */
+a{color: #333;text-decoration: none;}
 a:hover{text-decoration: none;color: orange;}
 
 .wrap {
@@ -120,7 +121,7 @@ a:hover{text-decoration: none;color: orange;}
 
 
 .footer {
-    height: 40px;
+    height: 30px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     padding-top: 8px;
@@ -196,7 +197,7 @@ a.desc:after {
 }
 .part{width: 100%; border-radius: 5px; margin-bottom: 5px;border: 1px #D4D4D4 solid;box-shadow: 3px 3px 3px rgba(200,200,200,0.5);margin-bottom: 15px;}
 .part .part_head{height: 30px;line-height: 30px;background: #f8f8f8;font-size: 16px;font-weight: 600;font-family: "微软雅黑 黑体";padding-left: 10px;border-radius:4px 4px 0 0; }
-.part .contain{margin-top: 5px;margin-left: 5px;padding-bottom: 10px;color:#333;font-size: 14px;padding-left: 5px;padding-right: 5px;}
+.part .contain{margin-top: 5px;margin-left: 5px;padding-bottom: 10px;color:#333;font-size: 14px;padding-left: 10px;padding-right: 10px;}
 .part .contain a{text-decoration: none;color: #999;}
 .part .contain a:hover{text-decoration: none;color: orange;}
 .part .contain #avater{width: 100px;height: 100px;border-radius: 50px;overflow: hidden;display: inline-block;}

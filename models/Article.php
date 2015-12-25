@@ -12,7 +12,7 @@ use yii\db\Query;
 class Article extends ActiveRecord
 {
 	//通过分类获取到文章列表
-	public function getArticle($class)
+	public function getArticle($class='')
 	{
 		//判断是否需要查询全部
 		$where='class='.$class;
@@ -79,9 +79,8 @@ class Article extends ActiveRecord
 	}
 
 	//通过文章ID返回文章的详细信息
-	public function getDetail()
+	public function getDetail($id)
 	{
-		$id=Yii::$app->request->get('id');
 		return $this->find()->where('article.id='.$id,['id'=>'id'])->joinWith('menu')->one();
 	}
 }

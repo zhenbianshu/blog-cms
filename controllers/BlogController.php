@@ -21,8 +21,8 @@ class BlogController extends controller
 
 	public function actionIndex()
 	{
-		$article=new Article();
-		$data=$article->getArticle($this->class);
+		$article=new Article($this->class);
+		$data=$article->getArticle();
 		echo $this->render('list',$data);
 	}
 
