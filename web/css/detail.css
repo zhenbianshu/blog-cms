@@ -1,0 +1,38 @@
+.part .part_head span{padding-left: 10px;padding-right: 12px;}
+.part .part_head .arrow_right{display: inline-block;width:0px; height:0; border-top:6px solid transparent;border-bottom: 6px solid transparent;border-left: 6px solid black; }
+.part .part_head a{color: #666;font-size: 15px;}
+.part .part_head a:hover{color: orange;}
+.contain .detail_title{padding-bottom: 4px;border-bottom: 1px dashed #888;margin-bottom: 10px;}
+.contain .detail_title span{margin-right: 20px;line-height: 25px;}
+.contain .detail{padding-bottom: 30px;}
+.share{width: 100%;margin-top:10px;padding-top: 10px;padding-bottom: 30px;border: 1px solid #ddd;padding-left: 10px;border-radius: 6px;}
+.share .share_title{font-weight: 600;margin-bottom: 5px;}
+.comments{margin-top: 10px;width: 100%;margin-bottom: 30px;}
+.comments .nocomment{display: inline-block; width: 100%;text-align: center;}
+.reprint{margin-top: 10px;width: 100%;margin-bottom: 10px;}
+.comments .comments_head{height: 40px;font-size: 20px;font-weight: 600;line-height: 40px;border-bottom: 1px dashed #aaa;margin-bottom: 10px;}
+.comment{position: relative;width: 100%; padding-bottom: 20px;border-bottom: 1px dashed #aaa;margin-top: 10px;}
+.comment .user_avater{vertical-align: top;}
+.comment .user_avater img{width: 50px;height: 50px;}
+.comment .c_content{margin-top: -52px; display: inline-block; padding-left: 55px;width: 100%;vertical-align: top;}
+.comment .c_content .c_title{color: #999;font-size: 14px;margin-bottom: 5px;}
+.comment .c_content .c_title a{color: #44708E;margin-right: 50px;}
+.comment .c_content .c_title a:hover{color: orange;}
+.comment .c_content .c_detail p{line-height: 24px;}
+.comment .c_content .floor{color: #999;position: absolute;bottom: 8px;right: 15px;}
+
+.write_comment .avater{width: 50px;height: 50px;display: inline-block;overflow: hidden;vertical-align: top;}
+.write_comment{position: relative;height: 120px;}
+.write_comment .avater img{width: 50px;height: 50px;}
+.write_comment .submit{height: 50px; vertical-align: top;position: absolute;left: 0;top: 0;padding-left: 56px;width: 100%}
+#comment_content{width: 100%;height: 60px;resize: none;}
+.submit{position: relative;width: 100%;}
+.submit ul{margin-top: 8px;display: inline-block;}
+.submit .btn{position: absolute;right: 50px;margin-top: 12px;}
+.submit ul li{display: inline-block;height: 40px;border: 1px solid #ccc;margin-right: 15px;line-height: 36px;padding: 4px;cursor: pointer;}
+.submit ul li span{display: inline-block; line-height: 30px;height: 30px;vertical-align: top;}
+.submit ul li div{background: url('../img/logos.jpg'); margin-right: 3px;display: inline-block;height: 30px;}
+.submit ul li .weibo{width:36px;background-position: -26px 0;}
+.submit ul li .qq{width:28px;background-position: -62px 0;}
+.submit ul li .baidu{width:26px;background-position: 0px 0;}
+.submit ul li .visitor{width:27px;background-position: -90px 0;}

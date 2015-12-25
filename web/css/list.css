@@ -1,0 +1,19 @@
+.article{width: 100%;height: 200px;border: 1px solid #D4D4D4;margin-bottom: 10px;border-radius: 5px;box-shadow: 3px 3px 3px rgba(200,200,200,0.5);}
+.article_head{width: 100%;height: 30px;background: #F8F8F8;border-radius: 4px 4px 0 0;border-bottom: 1px solid #D4D4D4;padding-left: 10px;font-weight: 600;color: #333333;line-height: 30px;}
+.article_head a{color: #333333;line-height: 30px;font-size: 18px;}
+.article_head .cg{display: inline-block;padding-right: 10px;line-height: 18px;height: 18px; border-right: 2px solid gray;margin-right: 10px;font-size: 16px;}
+.img_box{width: 170;height: 170px;padding-top: 8px;margin-left: 5px;display: inline-block;vertical-align: top;}
+.article img{width:150px;height: 150px;}
+.content{display: inline-block;height: 170px;overflow: hidden;padding-top: 8px;width: 520px;margin-left: 10px;position: relative;}
+.first_line{line-height: 18px;height: 18px;margin-bottom: 10px;margin-top: 5px;}
+.label_author{width: 15px;height: 18px;background: url('../img/labels.png');background-position: -17px 0;display: inline-block;vertical-align: top;}
+.author{font-size: 15px;line-height: 18px; font-weight: 600;font-family: "微软雅黑 黑体";vertical-align: top;color: #046393;}
+.label_time{width: 16px;height: 18px;background: url('../img/labels.png');background-position: -33px 0;display: inline-block;vertical-align: middle;margin-left: 50px;}
+.pubtime{font-size: 13px;color: #aaa;}
+.second_line{height: 18px;line-height: 18px;margin-bottom: 10px;}
+.tag{display: inline-block;background: #eeeeee;color: #04678A;margin-right: 3px;padding:1px;padding-left: 3px;padding-right: 4px;}
+.second_line a:hover{background: #888888;color: white;}
+.desc{margin-left: 50px;font-family: "微软雅黑 黑体";font-size: 15px;color: #666;font-weight: 650;}
+.abstract{text-indent: 2em;font-size: 14px;padding-bottom: 10px;padding-right: 2px;word-break:normal;font-family: "微软雅黑";line-height: 18px;}
+.look_all{ position: absolute; display: inline-block;bottom: 10px;right: 5px;font-size: 14px;}
+.read{position: absolute;right: 2px;top: 20px;}
