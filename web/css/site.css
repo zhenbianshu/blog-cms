@@ -1,24 +1,129 @@
+/* 对页面进行reset */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+:focus {
+    outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
 html,
 body {
     height: 100%;
 }
+/* 定义页面内容 */
+a:hover{text-decoration: none;color: orange;}
 
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+    margin: 0 auto -25px;
+    padding: 0 0 0px;
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 70px 80px 20px;
 }
 
+.container{
+    padding: 0px 80px 0px;
+}
+
+
 .footer {
-    height: 60px;
+    height: 40px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
-    padding-top: 20px;
+    padding-top: 8px;
 }
 
 .jumbotron {
@@ -89,3 +194,18 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.part{width: 100%; border-radius: 5px; margin-bottom: 5px;border: 1px #D4D4D4 solid;box-shadow: 3px 3px 3px rgba(200,200,200,0.5);margin-bottom: 15px;}
+.part .part_head{height: 30px;line-height: 30px;background: #f8f8f8;font-size: 16px;font-weight: 600;font-family: "微软雅黑 黑体";padding-left: 10px;border-radius:4px 4px 0 0; }
+.part .contain{margin-top: 5px;margin-left: 5px;padding-bottom: 10px;color:#333;font-size: 14px;padding-left: 5px;padding-right: 5px;}
+.part .contain a{text-decoration: none;color: #999;}
+.part .contain a:hover{text-decoration: none;color: orange;}
+.part .contain #avater{width: 100px;height: 100px;border-radius: 50px;overflow: hidden;display: inline-block;}
+.part .contain #avater img{width: 100px;height: 100px;}
+.part .contain .desc{display: inline-block;height: 100px; margin-left: 5px;vertical-align: top;padding-top: 20px;position: relative;margin-bottom: 10px;}
+.part .contain .desc div{width: 150px; margin-top: 20px;overflow: hidden;position: absolute;bottom: 15px;}
+.part .contain .contact p{width: 265px;line-height: 22px;}
+.part .contain .hot{line-height: 30px;width: 100%;border-bottom: 1px solid #D0D0D0;}
+.part .contain p .hot_title{margin-right: 30px}
+.part .contain p .hot_title a{font-size:14px;color: #046380;}
+.part .contain p .hot_title a:hover{color: orange;}
+.part .contain p .hot_view{color: #797979;}

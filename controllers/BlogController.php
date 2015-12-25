@@ -3,13 +3,32 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use \app\models\Test;
+use app\models\Article;
+use app\models\Menu;
 
-class BlogController EXTENDS controller
+class BlogController extends controller
 {
+	private $class;//当前方法对应的分类ID
+	public $layout='list';
+
+	//用构造函数获取分类的ID
+	public function beforeAction($action)
+	{
+		$menu=new Menu();
+		$this->class=$menu->getClass();
+		return true;
+	}
+
 	public function actionIndex()
 	{
+		$article=new Article();
+		$data=$article->getArticle($this->class);
+		echo $this->render('list',$data);
+	}
 
-		return $this->render('index');
+	//通过标签查找文章
+	public function actionTag()
+	{
+
 	}
 }
