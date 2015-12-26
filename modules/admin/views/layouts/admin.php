@@ -13,6 +13,7 @@ use app\models\Article;
 use app\models\Setting;
 
 AppAsset::register($this);
+$this->registerCssFile('./css/backen.css')
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,16 +27,29 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div class="wrap">
-<div style="height: 60px;background: #222222;line-height: 60px;font-size: 32px;font-family: '微软雅黑';font-weight: 600;color: #9D9D9D;padding-left: 50px;" >MDBlog</div>
-<?=$content?>
-</div>
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; 枕边书博客CMS系统 <?= date('Y') ?></p>
-        <p class="pull-right">枕边书</p>
-    </div>
-</footer>
+	<div class="menu_list" >
+			<span class="index">SQBlog</span>
+			<span class="words_main">MAIN</span>
+			<ul class="main">
+				<li><a href="">添加博文</a></li>
+				<li><a href="">管理博文</a></li>
+				<li><a href="">管理评论</a></li>
+				<li><a href="">管理导航</a></li>
+				<li><a href="">管理信息</a></li>
+			</ul>
+			<span class="words_main">PROFILE</span>
+			<ul class="main">
+				<li><a href="">内容概况</a></li>
+				<li><a href="">修改密码</a></li>
+				<li><a href="">退出登陆</a></li>
+			</ul>
+
+			<p class="announce">&copy; 枕边书博客CMS系统 <?= date('Y') ?></p>
+	</div>
+	<div style="width=82%;float: left;vertical-align: top;">
+		<?=$content?>
+	</div>
+
 
 <?php $this->endBody() ?>
 </body>
