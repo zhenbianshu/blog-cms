@@ -11,7 +11,7 @@ use yii\helpers\Url;
 AppAsset::register($this);
 $this->registerCssFile('./css/backen.css');
 $action = Yii::$app->controller->action->id;
-$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','sum'=>'内容概况','secret'=>'修改密码');
+$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','secret'=>'修改密码');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -38,7 +38,6 @@ $menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论',
 			<span class="words_main">PROFILE</span>
 			<ul class="main">
 				<li <?php if($action=='index')echo "class='chosen'"; ?>><a href="<?=Url::to(['index/index']) ?>">欢迎界面</a></li>
-				<li <?php if($action=='sum')echo "class='chosen'";  ?>><a href="<?=Url::to(['index/sum']) ?>">内容概况</a></li>
 				<li <?php if($action=='secret')echo "class='chosen'";  ?>><a href="<?=Url::to(['index/secret']) ?>">修改密码</a></li>
 				<li <?php if($action=='logout')echo "class='chosen'";  ?>><a href="<?=Url::to(['log/logout']) ?>">退出登陆</a></li>
 			</ul>

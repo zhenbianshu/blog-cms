@@ -31,7 +31,7 @@ $this->registerCssFile('./css/backen.css')
         'method'=>'post'
         ]); ?>
         <?= $form->field($model, 'username') ?>
-        <?= $form->field($model, 'password') ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
         <?= $form->field($model, 'verifyCode')->widget(Captcha::className(),
         ['captchaAction'=>'log/captcha',
             'imageOptions'=>

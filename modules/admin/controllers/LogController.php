@@ -5,7 +5,7 @@ namespace app\modules\admin\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\Url;
-use app\modules\admin\models\LoginForm;
+use app\modules\admin\models\Admin;
 
 class LogController extends Controller
 {
@@ -25,13 +25,13 @@ class LogController extends Controller
 
     public function actionIndex()
     {
-        $model = new LoginForm();
+        $model = new Admin();
         return $this->render('login', ['model' => $model]);
        
     }
     public function actionLogin()
     {
-    	$model = new LoginForm();
+    	$model = new Admin();
         if ($model->load(Yii::$app->request->post()) && $model->validate())
         {
         	if($model->checkUser()){
@@ -40,5 +40,14 @@ class LogController extends Controller
         		$this->redirect(Url::to(['index/index']));
         	}
         }
+    }
+
+    public function actionLogout()
+    {
+        $session=Yii::$app->session;
+        $session->remove('valid_admin');
+        $session->destroy();
+        $this->redirect(Url::to(['log/index']));
+        
     }
 }

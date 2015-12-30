@@ -6,10 +6,8 @@ use Yii;
 use yii\helpers\Url;
 use yii\web\Controller;
 use app\models\Setting;
-use app\modules\admin\models\Article;
-use app\modules\admin\models\Tag;
-use app\modules\admin\models\Article2tag;
-use app\modules\admin\models\Comment;
+use app\modules\admin\models\Admin;
+use app\modules\admin\models\Secret;
 
 class IndexController extends Controller
 {
@@ -35,6 +33,25 @@ class IndexController extends Controller
     	$data['desc']=$setting->getDesc()->value;
         return $this->render('index',['info'=>$data]);
     }
- 
+
+    //修改密码界面
+    public function actionSecret()
+    {
+    	$admin=new Secret(['scenario'=>'mod']);
+    	if(Yii::$app->request->isPost)
+    	{
+    		if($admin->updSecret())
+    		{
+    			Yii::$app->session->destroy();
+    			$this->redirect(Url::to(['log/index']));
+    		}else
+    		{
+    			$this->redirect(Url::current());
+    		}
+    	}else
+    	{
+    		return $this->render('secret',['model'=>$admin]);
+    	}	    	
+    }
 
 }
