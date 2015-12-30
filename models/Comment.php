@@ -12,7 +12,7 @@ class Comment extends ActiveRecord
 		$comments=(new query())
 			->from('comment')
 			->select('content,author,pubtime,avater')
-			->where('article='.$id,['article'=>'article'])
+			->where(['article_id'=>$id])
 			->orderBy('pubtime ASC')
 			->all();
 		return $comments;

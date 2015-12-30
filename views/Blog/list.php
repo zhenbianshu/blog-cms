@@ -32,7 +32,7 @@ foreach ($res as $article):
 				endforeach; ?>
 				<span class="desc"><?=$article->description ?></span>
 			</div>
-			<p class="abstract"><?=ZbsFunction::str_trunck($article->abstract) ?></p>
+			<p class="abstract"><?=ZbsFunction::str_trunck($article->abstract,360) ?></p>
 			<div class="look_all">
 				<a href="<?php echo Url::to(['article/detail']).'&id='.$article->id; ?>"> 查看全文 >></a>
 			</div>
