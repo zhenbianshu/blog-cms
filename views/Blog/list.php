@@ -4,13 +4,12 @@ use yii\helpers\Url;
 use yii\helpers\ZbsFunction;
 
 $this->registerCssFile('./css/list.css');
-
 foreach ($res as $article):
 ?>
 	<div class="article">
 		<div class="article_head">
 			<span class="cg"><?=$article->menu->name ?></span>
-			<a href="<?php echo Url::to(['article/detail'])."&id=".$article->id ?>" ><?= $article->title ?></a>	
+			<span class='description'><?=$article->description ?></span>
 		</div>
 		<div class="img_box">
 			<img src="<?php if($article->pic)echo $article->pic;else echo "./img/list/".rand(1,20).".jpg"; ?>">
@@ -18,11 +17,13 @@ foreach ($res as $article):
 		<div class="content">
 			<div class="first_line">
 				<div class="label_author"></div>
-				<a class="author" href="<?= $article->address ?>"><?=$article->author ?></a>
+				<a href="<?php echo Url::to(['article/detail'])."&id=".$article->id ?>" ><?= $article->title ?></a>
 				<div class="label_time"></div>
 				<span class="pubtime"><?= date('Y-m-d',$article->pubtime)?></span>
 			</div>
 			<div class="second_line">
+			<?=$article->author ?>
+			<span class="desc">
 				<?php foreach ($tags as $tag): 
 					if($tag['a_id']==$article->id):
 				?>
@@ -30,7 +31,7 @@ foreach ($res as $article):
 				<?php 
 					endif;
 				endforeach; ?>
-				<span class="desc"><?=$article->description ?></span>
+			</span>
 			</div>
 			<p class="abstract"><?=ZbsFunction::str_trunck($article->abstract,360) ?></p>
 			<div class="look_all">

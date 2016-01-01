@@ -38,7 +38,7 @@ $this->registerCssFile('./css/backen.css')
             ['alt'=>'点击换图','title'=>'点击换图', 'style'=>'cursor:pointer']
         ]) ?>
         <div class="form-group">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('登陆', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
 </div>

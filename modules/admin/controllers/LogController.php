@@ -32,7 +32,7 @@ class LogController extends Controller
     public function actionLogin()
     {
     	$model = new Admin();
-        if ($model->load(Yii::$app->request->post()) && $model->validate())
+        if ($model->load(Yii::$app->request->post()))
         {
         	if($model->checkUser()){
         		$session = Yii::$app->session;

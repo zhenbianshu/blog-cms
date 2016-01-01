@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\Article;
 use app\models\Comment;
+use app\models\Visitor;
 
 class ArticleController extends controller
 {
@@ -19,7 +20,8 @@ class ArticleController extends controller
 
 		$comment = new Comment();
 		$comments = $comment->getComments($id);
+		$visitor=new Visitor();
 
-		echo $this->render('detail',['detail'=>$detail,'comments'=>$comments]);
+		echo $this->render('detail',['detail'=>$detail,'comments'=>$comments,'visitor'=>$visitor]);
 	}
 }

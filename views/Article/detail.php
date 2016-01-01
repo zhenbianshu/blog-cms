@@ -1,10 +1,17 @@
 <?php 
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
+use yii\helpers\Html;
 $this->registerCssFile('./css/detail.css');
 ?>
+<script type="text/javascript">
+	var nameAddress="<?=Url::to(['log/name']) ?>"
+</script>
 <div class="part">
 	<div class="part_head">
-		<span><a href="">首页</a></span><div class="arrow_right"></div>
-		<span><a href=""><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
+		<span><a href="<?=Yii::$app->request->hostinfo ?>">首页</a></span><div class="arrow_right"></div>
+		<span><a href="<?=Url::to(['blog/index']).'&id='.$detail->menu->name ?>"><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
 		<span><a href=""><?=$detail->title ?></a></span>
 	</div>
 	<div class="contain">
@@ -63,13 +70,13 @@ $this->registerCssFile('./css/detail.css');
 			<?php endforeach;} ?>
 		</div>
 		<div class="write_comment">
-			<form id="mycomment">
+			<form id="mycomment" method="post" action="<?=Url::to(['blog/comment']) ?>" >
 				<div class="avater">
-					<img id="touxiang" src="./img/avater/default.jpg">
-				</div>
-				
+					<img id="touxiang" src="<?php if($avater=Yii::$app->session->get('user_avater')) echo $avater;else echo './img/avater/default.jpg'  ?>">
+				</div>				
 				<div class="submit">
-					<textarea id="comment_content" placeholder="请写下您的评论或意见"></textarea>
+					<textarea id="comment_content" name="content" placeholder="欢迎留言"></textarea>
+					<?php if(!Yii::$app->session->get('valid_user')): ?>
 					<ul>
 						<li>
 							<div class='weibo'></div>
@@ -83,14 +90,39 @@ $this->registerCssFile('./css/detail.css');
 							<div class='baidu'></div>
 							<span>百度登陆</span>
 						</li>
-						<li>
+						<li onclick="logVisitor()">
 							<div class='visitor'></div>
 							<span>游客登陆</span>
 						</li>
 					</ul>
+					<?php else: ?>
+					<div style="display: inline-block;margin-top: 15px;">
+						<span style="font-size: 14px;color: #bbb;">正在登陆：</span><span style="font-size: 15px;color: #222;"><?=Yii::$app->session->get('valid_user') ?></span>
+					</div>
+					<div style="display: inline-block; margin-left: 20px;"><a href="<?=Url::to(['log/logout'])?>">退出</a> </div>
+						
 					<input type="button" class="btn btn-default" value="提交" onclick="conSub()">
+					<?php endif ?>
 				</div>	
 			</form>
 		</div>
 	</div>
 </div>
+<div class="visitor_form" id="visitor_form">
+	<div class="main_frame">
+		<div class="form_title">游客登陆 <div class="entrance" onclick="closeLog()">X</div></div>
+		<div id="mask">
+			<?php $form=ActiveForm::begin(['action'=>Url::to(['log/login']),'method'=>'post']) ?>
+			<?=$form->field($visitor,'name') ?>
+			<?=$form->field($visitor,'verify')->widget(Captcha::className(),
+		        ['captchaAction'=>'log/captcha',
+		            'imageOptions'=>
+		            ['alt'=>'点击换图','title'=>'点击换图', 'style'=>'cursor:pointer']
+		        ]) ?>
+			<?=Html::submitButton('登陆',['class'=>'btn btn-primary']) ?>
+			<?php ActiveForm::end() ?>
+		</div>
+	</div>
+	
+</div>
+<?php $this->registerJsFile('./js/login.js'); ?>

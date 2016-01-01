@@ -11,6 +11,7 @@ use app\assets\AppAsset;
 use app\models\Menu;
 use app\models\Article;
 use app\models\Setting;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -83,7 +84,7 @@ AppAsset::register($this);
                     ?>
                     <p class="hot">
                         <span class="hot_title">
-                            <a href=""><?=$hot['title']?></a>
+                            <a href="<?=Url::to(['article/detail']).'&id='.$hot['id'] ?>"><?=$hot['title']?></a>
                         </span>
                         <span class="hot_view">
                             <?=$hot['readnum']?>views

@@ -1,6 +1,6 @@
 .article{width: 100%;height: 200px;border: 1px solid #D4D4D4;margin-bottom: 10px;border-radius: 5px;box-shadow: 3px 3px 3px rgba(200,200,200,0.5);}
 .article_head{width: 100%;height: 30px;background: #F8F8F8;border-radius: 4px 4px 0 0;border-bottom: 1px solid #D4D4D4;padding-left: 10px;font-weight: 600;color: #333333;line-height: 30px;}
-.article_head a{color: #333333;line-height: 30px;font-size: 18px;}
+.article_head .description{font-size: 14px;font-weight: 500;}
 .article_head .cg{display: inline-block;padding-right: 10px;line-height: 18px;height: 18px; border-right: 2px solid gray;margin-right: 10px;font-size: 16px;}
 .img_box{width: 170;height: 170px;padding-top: 8px;margin-left: 5px;display: inline-block;vertical-align: top;}
 .article img{width:150px;height: 150px;}

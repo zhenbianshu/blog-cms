@@ -3,6 +3,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\Url;
 class Menu extends ActiveRecord
 {
 	public function rules()
@@ -41,14 +42,14 @@ class Menu extends ActiveRecord
 		$i=0;
 		foreach ($topMenu as $top)
 		{
-			if($child=self::getNext($secondMenu,$top->attributes['id']))
+			if($child=self::getNext($secondMenu,$top->id))
 			{
-				$list[$i]['label']=$top->attributes['name'];
+				$list[$i]['label']=$top->name;
 				$list[$i]['items']=$child;
 			}else
 			{
-				$list[$i]['label']=$top->attributes['name'];
-				$list[$i]['url']=array("/blog/index/?id".$top->attributes['route']);
+				$list[$i]['label']=$top->name;
+				$list[$i]['url']=Url::to(['blog/index']).'&id='.$top->route;
 			}
 		$i++;
 		}
@@ -64,10 +65,10 @@ class Menu extends ActiveRecord
 		$i=0;
 		foreach ($secondMenu as $menu)
 		{
-			if($menu->attributes['pmenu']==$pmenu)
+			if($menu->pmenu==$pmenu)
 			{
-				$child[$i]['label']=$menu->attributes['name'];
-				$child[$i]['url']=array("/blog/index&id=".$menu->route);
+				$child[$i]['label']=$menu->name;
+				$child[$i]['url']=Url::to(['blog/index']).'&id='.$menu->route;
 				$i++;
 			}
 		}
@@ -83,7 +84,7 @@ class Menu extends ActiveRecord
 		{
 			return false;
 		}
-		return $class->attributes['id'];
+		return $class->id;
 	}
 
 	//获取全部二级菜单

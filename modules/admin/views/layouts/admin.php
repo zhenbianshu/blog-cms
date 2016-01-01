@@ -11,7 +11,7 @@ use yii\helpers\Url;
 AppAsset::register($this);
 $this->registerCssFile('./css/backen.css');
 $action = Yii::$app->controller->action->id;
-$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','secret'=>'修改密码');
+$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','secret'=>'修改密码','msg'=>'管理留言');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,6 +32,7 @@ $menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论',
 				<li <?php if($action=='add')echo "class='chosen'";  ?>><a href="<?=Url::to(['article/add']) ?>">添加博文</a></li>
 				<li <?php if($action=='show')echo "class='chosen'";  ?>><a href="<?=Url::to(['article/show']) ?>">管理博文</a></li>
 				<li <?php if($action=='list')echo "class='chosen'";  ?>><a href="<?=Url::to(['comment/list']) ?>">管理评论</a></li>
+				<li <?php if($action=='msg')echo "class='chosen'";  ?>><a href="<?=Url::to(['message/msg']) ?>">管理留言</a></li>
 				<li <?php if($action=='menu')echo "class='chosen'";  ?>><a href="<?=Url::to(['nav/menu']) ?>">管理导航</a></li>
 				<li <?php if($action=='info')echo "class='chosen'";  ?>><a href="<?=Url::to(['setting/info']) ?>">管理信息</a></li>
 			</ul>

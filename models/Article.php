@@ -66,6 +66,44 @@ class Article extends ActiveRecord
 		return $this->hasOne(Menu::className(),['id'=>'class']);
 	}
 
+	public function getByTag()
+	{
+		$tag=Yii::$app->request->get('id',1);
+		$count=(new Query())
+		->from('article2tag')
+		->where(['tag_id'=>$tag])
+		->count();
+
+		$page=new Pagination([
+	      'totalCount' => $count,
+	      'defaultPageSize'   => 10,
+	    ]);
+
+		$tags=(new query())
+			->select('g.name as name,a.id as a_id,g.id as g_id')
+            ->from('article AS a')
+            ->leftJoin('article2tag AS t','a.id = t.article_id')
+            ->rightJoin('tag AS g','g.id = t.tag_id')
+            ->where(['t.tag_id'=>$tag])
+            ->All();
+	    $res=(new query())
+	    	->select('a.title,a.pubtime,a.abstract,a.pic,a.description,a.author,a.id,a.readnum,m.name as name')
+	    	->from('article as a')
+	    	->leftJoin('menu as m','a.class=m.id')
+	    	->leftJoin('article2tag as t','t.article_id=a.id')
+	    	->where(['t.tag_id'=>$tag])
+	    	->offset($page->offset)
+			->limit($page->limit)
+	    	->all();
+	    
+	   
+	    //返回数据
+		$data['page']=$page;
+		$data['res']=$res;
+		$data['tags']=$tags;
+		return $data;
+	}
+
 	//获取最热文章
 	public function getHot()
 	{
@@ -81,6 +119,9 @@ class Article extends ActiveRecord
 	//通过文章ID返回文章的详细信息
 	public function getDetail($id)
 	{
+		$article=$this->findOne($id);
+		$article->readnum++;
+		$article->update();
 		return $this->find()->where('article.id='.$id,['id'=>'id'])->joinWith('menu')->one();
 	}
 }
