@@ -33,6 +33,12 @@ AppAsset::register($this);
     $menu=new Menu();
     $list=$menu->getMenuList();
     $setting=new Setting();
+    $tags=$menu->getTags();
+    $all=0;
+    foreach ($tags as $tag) {
+        $all+=$tag['num'];
+    }
+    $average=$all/count($tags);
     $siteName=$setting->getSiteName()->value;
     NavBar::begin([
         'brandLabel' => $siteName,
@@ -53,7 +59,7 @@ AppAsset::register($this);
         ]) ?>
 
 
-        <div style="width: 70%;float: left;">
+        <div style="width: 70%;float: left;min-height: 10px;">
             <?= $content ?>
         </div>
         <div style="width:30%;float: left;padding-left: 20px;">
@@ -61,7 +67,7 @@ AppAsset::register($this);
                 <div class="part_head">关于</div>
                 <div class="contain">
                     <div id="avater">
-                        <img src="./img/avater.jpg">
+                        <img src="/img/avater.jpg">
                     </div>
                     <div class="desc">
                         <p><?=$setting->getNickName()->value ?></p>
@@ -84,7 +90,7 @@ AppAsset::register($this);
                     ?>
                     <p class="hot">
                         <span class="hot_title">
-                            <a href="<?=Url::to(['article/detail']).'&id='.$hot['id'] ?>"><?=$hot['title']?></a>
+                            <a href="<?=Url::to(['article/detail']).'?id='.$hot['id'] ?>"><?=$hot['title']?></a>
                         </span>
                         <span class="hot_view">
                             <?=$hot['readnum']?>views
@@ -98,7 +104,22 @@ AppAsset::register($this);
                 
             </div>
             <div class="part">
-                <div class="part_head">热门标签</div>     
+                <div class="part_head">热门标签</div>
+                <div class="contain">
+                     <?php foreach ($tags as $tag): ?>
+                        <span class='hot_tag' style="font-size: 
+                        <?php 
+                        $font=$tag['num']/$average*18;
+                        if($font>30)$font=30;
+                        if($font<14)$font=14;
+                        echo $font; 
+                        ?>px;">
+                        <a onmouseover="this.style.color='orange'"
+                            onmouseout="this.style.color='#222'"
+                         style="color: #222;" href="<?=Url::to(['blog/tag']).'?id='.$tag['id'] ?>"><?=$tag['name'] ?></a> </span>
+                    <?php endforeach ?>   
+                </div>
+                
             </div>
         </div>  
     </div>
@@ -111,7 +132,23 @@ AppAsset::register($this);
         <p class="pull-right">枕边书</p>
     </div>
 </footer>
-
+<div id="top">
+    <div class="top_up_arrow"></div>
+    <a href="#">Top</a>
+</div>
+<script type="text/javascript">
+    window.onload=function(){
+        window.onscroll=function()
+        {
+            if($(document).scrollTop()>300){
+                $("#top").css('display','block');
+            }
+            if($(document).scrollTop()<300){
+                $("#top").css('display','none');
+            }
+        }
+    }    
+</script>
 <?php $this->endBody() ?>
 </body>
 </html>

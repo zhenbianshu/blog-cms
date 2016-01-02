@@ -3,7 +3,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
-$this->registerCssFile('./css/detail.css');
+$this->registerCssFile('/css/detail.css');
 ?>
 <script type="text/javascript">
 	var nameAddress="<?=Url::to(['log/name']) ?>"
@@ -11,7 +11,7 @@ $this->registerCssFile('./css/detail.css');
 <div class="part">
 	<div class="part_head">
 		<span><a href="<?=Yii::$app->request->hostinfo ?>">首页</a></span><div class="arrow_right"></div>
-		<span><a href="<?=Url::to(['blog/index']).'&id='.$detail->menu->name ?>"><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
+		<span><a href="<?=Url::to(['blog/index']).'?id='.$detail->menu->name ?>"><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
 		<span><a href=""><?=$detail->title ?></a></span>
 	</div>
 	<div class="contain">
@@ -72,7 +72,7 @@ $this->registerCssFile('./css/detail.css');
 		<div class="write_comment">
 			<form id="mycomment" method="post" action="<?=Url::to(['blog/comment']) ?>" >
 				<div class="avater">
-					<img id="touxiang" src="<?php if($avater=Yii::$app->session->get('user_avater')) echo $avater;else echo './img/avater/default.jpg'  ?>">
+					<img id="touxiang" src="<?php if($avater=Yii::$app->session->get('user_avater')) echo $avater;else echo '/img/avater/default.jpg'  ?>">
 				</div>				
 				<div class="submit">
 					<textarea id="comment_content" name="content" placeholder="欢迎留言"></textarea>
@@ -125,4 +125,4 @@ $this->registerCssFile('./css/detail.css');
 	</div>
 	
 </div>
-<?php $this->registerJsFile('./js/login.js'); ?>
+<?php $this->registerJsFile('/js/login.js'); ?>

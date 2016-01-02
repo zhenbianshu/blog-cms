@@ -14,13 +14,13 @@ $config = [
     'defaultRoute'=>'blog',//修改默认控制器
     'components' => [
         'urlManager' => [
-                //'enablePrettyUrl' => true,
+                'class' => 'yii\web\UrlManager',
+                'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 //'suffix'=>'.html',
                 'rules' => [
-                    /*'<controller:\w+>/<id:\w+>' => '<controller>',
-                    '<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>',
-                    '<controller:\w+>/<action:\w+>' => '<controller>/<action>',*/
+                    'msg' => 'blog/msg', 
+                    '<module:admin>/<controller:log>/<action:captcha>'=>'<module>/<controller>/<action>',
                 ],
             ],
         'request' => [

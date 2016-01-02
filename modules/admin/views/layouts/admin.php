@@ -9,9 +9,9 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 
 AppAsset::register($this);
-$this->registerCssFile('./css/backen.css');
+$this->registerCssFile('/css/backen.css');
 $action = Yii::$app->controller->action->id;
-$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','secret'=>'修改密码','msg'=>'管理留言');
+$menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论','menu'=>'管理导航','info'=>'管理信息','index'=>'欢迎界面','secret'=>'修改密码','msg'=>'管理留言','upd'=>'文章修改');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

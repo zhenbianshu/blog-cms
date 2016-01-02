@@ -3,6 +3,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\db\Query;
 use yii\helpers\Url;
 class Menu extends ActiveRecord
 {
@@ -49,7 +50,7 @@ class Menu extends ActiveRecord
 			}else
 			{
 				$list[$i]['label']=$top->name;
-				$list[$i]['url']=Url::to(['blog/index']).'&id='.$top->route;
+				$list[$i]['url']=Url::to(['blog/list']).'?id='.$top->route;
 			}
 		$i++;
 		}
@@ -68,7 +69,7 @@ class Menu extends ActiveRecord
 			if($menu->pmenu==$pmenu)
 			{
 				$child[$i]['label']=$menu->name;
-				$child[$i]['url']=Url::to(['blog/index']).'&id='.$menu->route;
+				$child[$i]['url']=Url::to(['blog/list']).'?id='.$menu->route;
 				$i++;
 			}
 		}
@@ -123,5 +124,18 @@ class Menu extends ActiveRecord
 				return true;
 			}
 		}
+	}
+
+	public function getTags()
+	{
+		$tags=(new query())
+			->select('count(t.tag_id) as num,g.id,g.name')
+			->from('article2tag as t')
+			->leftJoin('tag as g','g.id=t.tag_id')
+			->groupBy('t.tag_id')
+			->orderBy('g.name')
+			->limit(20)
+			->all();
+		return $tags;
 	}
 }

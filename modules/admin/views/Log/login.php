@@ -7,9 +7,10 @@ use yii\helpers\Html;
 use yii\captcha\Captcha;
 use yii\widgets\ActiveForm;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
-$this->registerCssFile('./css/backen.css')
+$this->registerCssFile('/css/backen.css')
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ $this->registerCssFile('./css/backen.css')
 <div style="width: 100%;height: 30px;background:#f8f8f8 ;border-radius: 9px 9px 0 0 ;line-height: 30px;font-weight: 600;padding-left: 20px;">SQBlog登陆</div>
 <div style="padding: 20px">
     <?php $form = ActiveForm::begin([
-        'action' => ['log/login'],
+        'action' => Url::to(['log/login']),
         'method'=>'post'
         ]); ?>
         <?= $form->field($model, 'username') ?>
@@ -41,11 +42,8 @@ $this->registerCssFile('./css/backen.css')
             <?= Html::submitButton('登陆', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
+</div>    
 </div>
-    
-</div>
-
-
 <?php $this->endBody() ?>
 </body>
 </html>

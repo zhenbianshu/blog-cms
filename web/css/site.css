@@ -210,3 +210,5 @@ a.desc:after {
 .part .contain p .hot_title a{font-size:14px;color: #046380;}
 .part .contain p .hot_title a:hover{color: orange;}
 .part .contain p .hot_view{color: #797979;}
+#top{color: #666;font-size: 12px;position: fixed;right: 40px;bottom: 88px;display: none;}
+#top .top_up_arrow{width: 0;height: 0;border-left: 5px solid transparent;border-right: 5px solid transparent;border-bottom: 5px solid #2f2f2f;margin-left: 5px;margin-bottom: 3px;}

@@ -15,15 +15,17 @@ class Article extends ActiveRecord
 	public function getArticle($class='')
 	{
 		//判断是否需要查询全部
-		$where='class='.$class;
+		$where=['and',['class'=>$class],['top'=>'0']];
+		$tops=array();
 		if(!$class)
 		{
-			$where='1=1';
+			$where=['top'=>'0'];
+			$tops=$this->find()->where(['top'=>1])->all();
 		}
 
 		//查询并将分页类并入。
 		$count=$this->find()
-			->where($where,['class'=>$class])
+			->where($where)
 			->count();
 		$page=new Pagination([
 	      'totalCount' => $count,
@@ -32,7 +34,7 @@ class Article extends ActiveRecord
 
 		//将分页的数据传入限制
 		$res=$this->find()
-			->where($where,['class'=>$class])
+			->where($where)
 			->joinWith('menu')
 			->orderBy('id DESC')
 			->offset($page->offset)
@@ -57,6 +59,7 @@ class Article extends ActiveRecord
 		$data['page']=$page;
 		$data['res']=$res;
 		$data['tags']=$tags;
+		$data['tops']=$tops;
 		return $data;
 	}
 
@@ -68,7 +71,7 @@ class Article extends ActiveRecord
 
 	public function getByTag()
 	{
-		$tag=Yii::$app->request->get('id',1);
+		$tag=Yii::$app->request->get('id');
 		$count=(new Query())
 		->from('article2tag')
 		->where(['tag_id'=>$tag])
@@ -85,7 +88,9 @@ class Article extends ActiveRecord
             ->leftJoin('article2tag AS t','a.id = t.article_id')
             ->rightJoin('tag AS g','g.id = t.tag_id')
             ->where(['t.tag_id'=>$tag])
-            ->All();
+            ->offset($page->offset)
+			->limit($page->limit)
+	    	->all();
 	    $res=(new query())
 	    	->select('a.title,a.pubtime,a.abstract,a.pic,a.description,a.author,a.id,a.readnum,m.name as name')
 	    	->from('article as a')
