@@ -72,6 +72,12 @@ class Article extends ActiveRecord
 	public function getByTag()
 	{
 		$tag=Yii::$app->request->get('id');
+		$chosenTag=(new Query())
+		->from('tag')
+		->where(['id'=>$tag])
+		->one();
+		$tagName=$chosenTag['name'];
+
 		$count=(new Query())
 		->from('article2tag')
 		->where(['tag_id'=>$tag])
@@ -92,7 +98,7 @@ class Article extends ActiveRecord
 			->limit($page->limit)
 	    	->all();
 	    $res=(new query())
-	    	->select('a.title,a.pubtime,a.abstract,a.pic,a.description,a.author,a.id,a.readnum,m.name as name')
+	    	->select('a.title,a.pubtime,a.abstract,a.pic,a.description,a.author,a.id,a.readnum,m.name')
 	    	->from('article as a')
 	    	->leftJoin('menu as m','a.class=m.id')
 	    	->leftJoin('article2tag as t','t.article_id=a.id')
@@ -106,6 +112,7 @@ class Article extends ActiveRecord
 		$data['page']=$page;
 		$data['res']=$res;
 		$data['tags']=$tags;
+		$data['tagName']=$tagName;
 		return $data;
 	}
 

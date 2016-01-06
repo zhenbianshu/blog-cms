@@ -2,9 +2,10 @@
 .article_head{width: 100%;height: 30px;background: #F8F8F8;border-radius: 4px 4px 0 0;border-bottom: 1px solid #D4D4D4;padding-left: 10px;font-weight: 600;color: #333333;line-height: 30px;}
 .article_head .description{font-size: 14px;font-weight: 500;}
 .article_head .cg{display: inline-block;padding-right: 10px;line-height: 18px;height: 18px; border-right: 2px solid gray;margin-right: 10px;font-size: 16px;}
-.img_box{width: 170;height: 170px;padding-top: 8px;margin-left: 5px;display: inline-block;vertical-align: top;}
-.article img{width:150px;height: 150px;}
-.content{display: inline-block;height: 170px;overflow: hidden;padding-top: 8px;width: 520px;margin-left: 10px;position: relative;}
+.article_content{width: 100%;padding: 10px;min-height: 170px;position: relative;}
+.content_img{width: 150px;height: 150px;overflow: hidden;position: absolute;}
+.article_content img{width:150px;height: 150px;}
+.article_content .content_right{width: 100%;float: left;padding-left: 165px;}
 .first_line{line-height: 18px;height: 18px;margin-bottom: 10px;margin-top: 5px;}
 .label_author{width: 15px;height: 18px;background: url('../img/labels.png');background-position: -17px 0;display: inline-block;vertical-align: top;}
 .author{font-size: 15px;line-height: 18px; font-weight: 600;font-family: "微软雅黑 黑体";vertical-align: top;color: #046393;}
@@ -15,5 +16,5 @@
 .second_line a:hover{background: #888888;color: white;}
 .desc{margin-left: 50px;font-family: "微软雅黑 黑体";font-size: 15px;color: #666;font-weight: 650;}
 .abstract{text-indent: 2em;font-size: 14px;padding-bottom: 10px;padding-right: 2px;word-break:normal;font-family: "微软雅黑";line-height: 18px;}
-.look_all{ position: absolute; display: inline-block;bottom: 10px;right: 5px;font-size: 14px;}
-.read{position: absolute;right: 2px;top: 20px;}
+.look_all{ position: absolute; display: inline-block;bottom: 10px;right: 10px;font-size: 14px;}
+.read{position: absolute;right: 10px;top: 20px;}

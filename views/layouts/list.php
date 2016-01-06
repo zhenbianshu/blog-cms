@@ -14,22 +14,6 @@ use app\models\Setting;
 use yii\helpers\Url;
 
 AppAsset::register($this);
-?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
     $menu=new Menu();
     $list=$menu->getMenuList();
     $setting=new Setting();
@@ -38,8 +22,27 @@ AppAsset::register($this);
     foreach ($tags as $tag) {
         $all+=$tag['num'];
     }
-    $average=$all/count($tags);
+    $average=18;
+    if(count($tag)!=0){
+       $average=$all/count($tags); 
+    }  
     $siteName=$setting->getSiteName()->value;
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title.$siteName) ?></title>
+    <?php $this->head() ?>
+</head>
+<body>
+<?php $this->beginBody() ?>
+
+<div class="wrap">
+    <?php
     NavBar::begin([
         'brandLabel' => $siteName,
         'brandUrl' => Yii::$app->homeUrl,
@@ -57,8 +60,6 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-
-
         <div style="width: 70%;float: left;min-height: 10px;">
             <?= $content ?>
         </div>
@@ -66,17 +67,13 @@ AppAsset::register($this);
             <div class="part">
                 <div class="part_head">关于</div>
                 <div class="contain">
-                    <div id="avater">
-                        <img src="/img/avater.jpg">
+                    <div class="avater_center">
+                        <div id="avater">
+                            <img src="/img/avater.jpg">
+                        </div>
                     </div>
-                    <div class="desc">
-                        <p><?=$setting->getNickName()->value ?></p>
-                        <div><?=$setting->getDesc()->value ?></div> 
-                    </div>
-                    <div class="contact">
-                        <p>Email: <a href="mailTo:<?=$setting->getAddress()->value ?>"><?=$setting->getAddress()->value ?></a></p>
-                        <p>您可以<a href="feed">订阅</a>本站，也可以推荐或<a href="#">分享</a>给您的朋友。</p>
-                    </div>
+                    <p class="my_desc"><?=$setting->getNickName()->value ?></p>
+                    <p class="my_desc"><?=$setting->getDesc()->value ?></p> 
                 </div>   
             </div>
             <div class="part">

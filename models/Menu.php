@@ -80,12 +80,16 @@ class Menu extends ActiveRecord
 	public function getClass()
 	{
 		$action=Yii::$app->request->get('id');
+		if($action=='')
+		{
+			return false;
+		}
 		$class=$this->find()->where(['route' => $action])->one();
 		if(!$class)
 		{
 			return false;
 		}
-		return $class->id;
+		return $class;
 	}
 
 	//获取全部二级菜单

@@ -4,6 +4,7 @@ use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 $this->registerCssFile('/css/detail.css');
+$this->title=$detail->title.'--'.$detail->menu->name.'--';
 ?>
 <script type="text/javascript">
 	var nameAddress="<?=Url::to(['log/name']) ?>"
@@ -11,14 +12,14 @@ $this->registerCssFile('/css/detail.css');
 <div class="part">
 	<div class="part_head">
 		<span><a href="<?=Yii::$app->request->hostinfo ?>">首页</a></span><div class="arrow_right"></div>
-		<span><a href="<?=Url::to(['blog/index']).'?id='.$detail->menu->name ?>"><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
+		<span><a href="<?=Url::to(['blog/list']).'?id='.$detail->menu->route ?>"><?=$detail->menu->name ?></a></span><div class="arrow_right"></div>
 		<span><a href=""><?=$detail->title ?></a></span>
 	</div>
 	<div class="contain">
 		<div class="detail_title">
 			<span>作者：<?=$detail->author ?></span>
 			<span>日期：<?=date('Y-m-d',$detail->pubtime) ?></span>
-			<span>感谢或参考<a href="">原文</a></span><br>
+			<span>感谢或参考<a href="<?=$detail->address ?>">原文</a></span><br>
 			<span>简评：<?=$detail->description ?></span>
 			<span>已有<?=$detail->readnum ?>次阅读</span>
 		</div>
@@ -75,7 +76,7 @@ $this->registerCssFile('/css/detail.css');
 					<img id="touxiang" src="<?php if($avater=Yii::$app->session->get('user_avater')) echo $avater;else echo '/img/avater/default.jpg'  ?>">
 				</div>				
 				<div class="submit">
-					<textarea id="comment_content" name="content" placeholder="欢迎留言"></textarea>
+					<textarea id="comment_content" name="content" placeholder="欢迎对文章发表您的意见"></textarea>
 					<?php if(!Yii::$app->session->get('valid_user')): ?>
 					<ul>
 						<li>
@@ -101,7 +102,7 @@ $this->registerCssFile('/css/detail.css');
 					</div>
 					<div style="display: inline-block; margin-left: 20px;"><a href="<?=Url::to(['log/logout'])?>">退出</a> </div>
 						
-					<input type="button" class="btn btn-default" value="提交" onclick="conSub()">
+					<input type="button" class="btn btn-primary" value="提交" onclick="conSub()">
 					<?php endif ?>
 				</div>	
 			</form>

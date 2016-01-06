@@ -18,7 +18,9 @@ $config = [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 //'suffix'=>'.html',
+                //'enableStrictParsing' => true,
                 'rules' => [
+                    'detail/<id:\d+>'=>'article/detail/<id>',
                     'msg' => 'blog/msg', 
                     '<module:admin>/<controller:log>/<action:captcha>'=>'<module>/<controller>/<action>',
                 ],

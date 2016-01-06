@@ -20,7 +20,7 @@ $menu=array('add'=>'添加博文','show'=>'管理博文','list'=>'管理评论',
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode('SQBlog--后台管理') ?></title>
     <?php $this->head() ?>
 </head>
 <body>

@@ -27,7 +27,18 @@ class BlogController extends controller
 	public function actionList()
 	{
 		$article=new Article();
-		$data=$article->getArticle($this->class);
+		if($this->class!='')
+		{
+			$className=$this->class->id;
+		}
+		else{
+			$className='';
+		}
+		$data=$article->getArticle($className);
+		if($this->class!='')
+		{
+			$data['className']=$this->class->name;
+		}		
 		echo $this->render('list',$data);
 	}
 

@@ -200,11 +200,11 @@ a.desc:after {
 .part .contain{margin-top: 5px;margin-left: 5px;padding-bottom: 10px;color:#333;font-size: 14px;padding-left: 10px;padding-right: 10px;}
 .part .contain a{text-decoration: none;color: #999;}
 .part .contain a:hover{text-decoration: none;color: orange;}
-.part .contain #avater{width: 100px;height: 100px;border-radius: 50px;overflow: hidden;display: inline-block;}
+.part .contain #avater{width: 100px;height: 100px;border-radius: 50px;overflow: hidden;display: inline-block;margin-left: -50px;}
 .part .contain #avater img{width: 100px;height: 100px;}
-.part .contain .desc{display: inline-block;height: 100px; margin-left: 5px;vertical-align: top;padding-top: 20px;position: relative;margin-bottom: 10px;}
-.part .contain .desc div{width: 150px; margin-top: 20px;overflow: hidden;position: absolute;bottom: 15px;}
-.part .contain .contact p{width: 265px;line-height: 22px;}
+.avater_center{width: 100%;padding-left: 50%;}
+.part .contain .my_desc{line-height: 25px;text-align: center;width: 100%; }
+.contact{width: 100%;line-height: 22px;word-break:break-all;}
 .part .contain .hot{line-height: 30px;width: 100%;border-bottom: 1px solid #D0D0D0;}
 .part .contain p .hot_title{margin-right: 30px}
 .part .contain p .hot_title a{font-size:14px;color: #046380;}
