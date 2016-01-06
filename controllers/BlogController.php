@@ -77,4 +77,12 @@ class BlogController extends controller
 			}
 		}
 	}
+
+	public function actionError()
+	{
+		$this->layout=false;
+		$error=Yii::$app->errorHandler->exception;
+		$statusCode=$error->statusCode;
+		return $this->render('error',['statusCode'=>$statusCode]);
+	}
 }

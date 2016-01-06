@@ -17,9 +17,29 @@ $config = [
                 'class' => 'yii\web\UrlManager',
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
-                //'suffix'=>'.html',
+                'suffix'=>'.html',
                 //'enableStrictParsing' => true,
                 'rules' => [
+                    [
+                        'pattern'=>'article',
+                        'route'=>'article/detail',
+                        'suffix'=>'.html'
+                    ],
+                    [
+                        'pattern'=>'category',
+                        'route'=>'blog/list',
+                        'suffix'=>'.html'
+                    ],
+                    [
+                        'pattern'=>'tag',
+                        'route'=>'blog/tag',
+                        'suffix'=>'.html'
+                    ],
+                    [
+                        'pattern'=>'zbsadmin',
+                        'route'=>'admin/index/index',
+                        'suffix'=>'.html'
+                    ],
                     'detail/<id:\d+>'=>'article/detail/<id>',
                     'msg' => 'blog/msg', 
                     '<module:admin>/<controller:log>/<action:captcha>'=>'<module>/<controller>/<action>',
@@ -37,7 +57,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'blog/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
