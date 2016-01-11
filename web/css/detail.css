@@ -4,7 +4,10 @@
 .part .part_head a:hover{color: orange;}
 .contain .detail_title{padding-bottom: 4px;border-bottom: 1px dashed #888;margin-bottom: 10px;}
 .contain .detail_title span{margin-right: 20px;line-height: 25px;}
-.contain .detail{padding-bottom: 30px;}
+.contain .detail{padding-bottom: 30px;line-height: 1.5;}
+.contain .detail ul{margin-left:40px; }
+.contain .detail ol{margin-left:50px; }
+.contain .detail img{max-width: 90% !important;}
 .share{width: 100%;margin-top:10px;padding-top: 10px;padding-bottom: 30px;border: 1px solid #ddd;padding-left: 10px;border-radius: 6px;}
 .share .share_title{font-weight: 600;margin-bottom: 5px;}
 .comments{margin-top: 10px;width: 100%;margin-bottom: 30px;}

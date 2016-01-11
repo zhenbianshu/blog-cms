@@ -14,6 +14,7 @@ class BlogController extends controller
 	private $class;//当前方法对应的分类ID
 	public $layout='list';
 	public $defaultAction='list';
+	public $enableCsrfValidation = false;
 
 
 	//用构造函数获取分类的ID
@@ -84,5 +85,12 @@ class BlogController extends controller
 		$error=Yii::$app->errorHandler->exception;
 		$statusCode=$error->statusCode;
 		return $this->render('error',['statusCode'=>$statusCode]);
+	}
+	public function actionFeed()
+	{
+		$this->layout=false;
+		$article=new Article();
+		$data=$article->getArticle();
+		return $this->render('feed',$data);
 	}
 }

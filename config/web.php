@@ -31,16 +31,15 @@ $config = [
                         'suffix'=>'.html'
                     ],
                     [
+                        'pattern'=>'feed',
+                        'route'=>'blog/feed',
+                        'suffix'=>'.xml'
+                    ],
+                    [
                         'pattern'=>'tag',
                         'route'=>'blog/tag',
                         'suffix'=>'.html'
                     ],
-                    [
-                        'pattern'=>'zbsadmin',
-                        'route'=>'admin/index/index',
-                        'suffix'=>'.html'
-                    ],
-                    'detail/<id:\d+>'=>'article/detail/<id>',
                     'msg' => 'blog/msg', 
                     '<module:admin>/<controller:log>/<action:captcha>'=>'<module>/<controller>/<action>',
                 ],

@@ -34,6 +34,7 @@ $menu=new Menu();
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title.$siteName) ?></title>
     <?php $this->head() ?>
+    <link href="/ume/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php $this->beginBody() ?>

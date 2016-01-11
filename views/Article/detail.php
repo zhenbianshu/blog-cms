@@ -6,8 +6,10 @@ use yii\helpers\Html;
 $this->registerCssFile('/css/detail.css');
 $this->title=$detail->title.'--'.$detail->menu->name.'--';
 ?>
+<script type="text/javascript" src="/ume/third-party/SyntaxHighlighter/shCore.js"></script>
 <script type="text/javascript">
 	var nameAddress="<?=Url::to(['log/name']) ?>"
+	SyntaxHighlighter.all();
 </script>
 <div class="part">
 	<div class="part_head">
@@ -79,17 +81,10 @@ $this->title=$detail->title.'--'.$detail->menu->name.'--';
 					<textarea id="comment_content" name="content" placeholder="欢迎对文章发表您的意见"></textarea>
 					<?php if(!Yii::$app->session->get('valid_user')): ?>
 					<ul>
-						<li>
-							<div class='weibo'></div>
-							<span>微博登陆</span>
-						</li>
-						<li>
-							<div class='qq'></div>
-							<span>QQ登陆</span>
-						</li>
-						<li>
-							<div class='baidu'></div>
-							<span>百度登陆</span>
+						<li><a style="color: #000" href="<?=Url::to(['log/qq']).'?id=sq' ?>">
+								<div class='qq'></div>
+								<span>QQ登陆</span>
+							</a>
 						</li>
 						<li onclick="logVisitor()">
 							<div class='visitor'></div>
@@ -120,6 +115,7 @@ $this->title=$detail->title.'--'.$detail->menu->name.'--';
 		            'imageOptions'=>
 		            ['alt'=>'点击换图','title'=>'点击换图', 'style'=>'cursor:pointer']
 		        ]) ?>
+		    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
 			<?=Html::submitButton('登陆',['class'=>'btn btn-primary']) ?>
 			<?php ActiveForm::end() ?>
 		</div>
