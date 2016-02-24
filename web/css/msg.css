@@ -1,0 +1,34 @@
+.welcome{padding: 15px;font-weight: 600;font-size: 14px;font-family: "微软雅黑"}
+.welcome p{text-indent: 2em;line-height: 20px;}
+.content{padding: 15px;position: relative;padding-top: 0px;}
+.content .msg{border-bottom: 1px dashed #bbb;padding-bottom: 10px;min-height: 70px;padding-top: 10px;}
+.msg .avater{display: inline-block;width: 50px;height: 50px;float: left;}
+.msg .avater img{width: 50px;height: 50px;}
+.msg .msg_detail{width: 100%;padding-left: 55px;vertical-align: top;}
+.msg .msg_detail a{font-size: 14px;}
+.msg .msg_detail .pubtime{font-size: 14px;color: #888;margin-left: 50px;}
+.msg .msg_detail .msg_content{margin-top: 8px;line-height: 22px;}
+
+.down{padding-top: 10px;}
+.write_comment .avater{width: 50px;height: 50px;display: inline-block;overflow: hidden;vertical-align: top;}
+.write_comment{position: relative;height: 120px;}
+.write_comment .avater img{width: 50px;height: 50px;}
+.write_comment .submit{height: 50px; vertical-align: top;position: absolute;left: 0;top: 0;padding-left: 56px;width: 100%}
+#comment_content{width: 100%;height: 60px;resize: none;}
+.submit{position: relative;width: 100%;}
+.submit ul{margin-top: 8px;display: inline-block;}
+.submit .btn{position: absolute;right: 50px;margin-top: 12px;}
+.submit ul li{display: inline-block;height: 40px;border: 1px solid #ccc;margin-right: 15px;line-height: 36px;padding: 4px;cursor: pointer;}
+.submit ul li span{display: inline-block; line-height: 30px;height: 30px;vertical-align: top;}
+.submit ul li div{background: url('../img/logos.jpg'); margin-right: 3px;display: inline-block;height: 30px;}
+.submit ul li .weibo{width:36px;background-position: -26px 0;}
+.submit ul li .qq{width:28px;background-position: -62px 0;}
+.submit ul li .baidu{width:26px;background-position: 0px 0;}
+.submit ul li .visitor{width:27px;background-position: -90px 0;}
+
+
+.visitor_form{width: 100%;height: 100%;position: fixed;top:0px;left: 0px;background: rgba(222,222,222,0.4); z-index: 99;display: none;}
+.main_frame{width: 400px;height: 350px;margin: 150px auto;background: white;opacity: 1;z-index: 100; border: 1px solid #ccc;box-shadow: 5px 5px 5px rgba(200,200,200,0.5);border-radius: 10px;}
+.form_title{width: 100%;height: 30px;line-height: 30px;background: #ddd;border-radius: 9px 9px 0 0 ;padding-left: 20px;font-weight: 600;}
+.entrance{float: right;font-size: 25px;font-weight: 800;margin-right: 10px;cursor: pointer;}
+#mask{width:400px;height: 400px;padding: 15px; padding-top: 30px;}
